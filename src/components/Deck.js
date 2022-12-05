@@ -5,7 +5,7 @@ export default function Deck({cards, cont, setCont}){
     return(
         <>
             {cards.map((card, i) => (
-                <CardGame
+                <CardGame data-test="flashcard"
                     key={i}
                     i={i}
                     card={card}

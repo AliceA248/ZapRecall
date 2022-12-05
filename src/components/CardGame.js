@@ -16,42 +16,39 @@ export default function CardGame({i, card, cont, setCont}){
     switch(estadoCarta){
         case 'PerguntaFechada':
             return(
-                <PerguntaFechada>
+                <PerguntaFechada data-test="flashcard">
                     <p>Pergunta {i + 1} </p>
                     <img src={LogoSetaPlay}  onClick={() => setEstadoCarta('PerguntaAberta')}/>
                 </PerguntaFechada>
-            );
-            break;
+                
+            )
         
         case 'PerguntaAberta':
             return(
-                <PerguntaAberta>
+                <PerguntaAberta data-test="flashcard-text" >
                     <p>{card.question}</p>
                     <img src={LogoSetaVirar}  onClick={() => setEstadoCarta('PerguntaFinal')}/>
                 </PerguntaAberta>);
-            break;
 
         case 'PerguntaFinal':
             return(
-                <PerguntaAberta>
+                <PerguntaAberta data-test="turn-btn" >
                     <p>{card.answer}</p>
                     <div>
-                        <Button cor = '#FF3030' onClick={() => (setEstadoCarta('CartaFinalizada'), setIcon(IconeErro), setCor('#FF3030'), setCont(cont + 1))}> Não lembrei </Button>
-                        <Button cor = '#FF922E' onClick={() => (setEstadoCarta('CartaFinalizada'), setIcon(IconeQuase), setCor('#FF922E'), setCont(cont + 1))}> Quase não lembrei </Button>
-                        <Button cor = '#2FBE34' onClick={() => (setEstadoCarta('CartaFinalizada'), setIcon(IconeCerto), setCor('#2FBE34'), setCont(cont + 1))}> Zap!! </Button>
+                        <Button data-test="play-btn" cor = '#FF3030' onClick={() => (setEstadoCarta('CartaFinalizada'), setIcon(IconeErro), setCor('#FF3030'), setCont(cont + 1))}> Não lembrei </Button>
+                        <Button data-test="play-btn" cor = '#FF922E' onClick={() => (setEstadoCarta('CartaFinalizada'), setIcon(IconeQuase), setCor('#FF922E'), setCont(cont + 1))}> Quase não lembrei </Button>
+                        <Button data-test="play-btn" cor = '#2FBE34' onClick={() => (setEstadoCarta('CartaFinalizada'), setIcon(IconeCerto), setCor('#2FBE34'), setCont(cont + 1))}> Zap!! </Button>
                     </div>
                 </PerguntaAberta>
             );
-            break;
 
         case 'CartaFinalizada':
             return(
                 <CartaFinalizada cor = {cor}>
                     <p>Pergunta {i + 1} </p>
-                    <img src={icon} alt="IconAnswer" />
+                    <img src={icon}  />
                 </CartaFinalizada>
             );
-            break;
     }
 }
 
