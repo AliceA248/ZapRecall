@@ -1,17 +1,12 @@
-import React from "react";
-import MainPage from "./components/MainPage";
-import Footer from "./components/Footer";
-import "./App.css"
+import GlobalStyle from './components/GlobalStyle'
+import Main from './components/Main'
 
-function App() {
+
+export default function App() {
   return (
-    <div className="Algo">
-      <>
-        <MainPage />
-      </>
-      <Footer />
-    </div >
-  )
+        <>
+          <GlobalStyle/>
+          <Main />
+        </>
+  );
 }
-
-export default App

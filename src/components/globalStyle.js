@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import React from 'react'
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -21,13 +22,13 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
 	line-height: 1;
-	overflow-x: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -45,5 +46,5 @@ table {
 	border-spacing: 0;
 }
 `
- 
+
 export default GlobalStyle

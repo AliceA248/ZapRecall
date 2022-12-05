@@ -1,7 +1,15 @@
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
-export const Bottom = styled.div`
+export default function Footer({deck, cont}){
+    return(
+        <FooterContainer>
+            <p>{cont}/{deck} CONCLUÍDOS</p>
+        </FooterContainer>
+    );
+}
 
+const FooterContainer = styled.div`
     width: 100%;
     min-height: 50px;
     background-color: #FFFFFF;
@@ -16,5 +24,4 @@ export const Bottom = styled.div`
     font-size: 18px;
     color: #333333;
     padding: 10px;
-    margin-left:0px;
 `
