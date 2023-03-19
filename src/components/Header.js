@@ -1,30 +1,55 @@
-import React from 'react'
-import styled from 'styled-components'
-import logo from '../img/logo.png'
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
+export default function Header() {
+	const image = localStorage.getItem('Image');
+	const navigate = useNavigate();
 
-export default function Header(){
-    return(
-        <Inicio>
-            <img src = {logo} />
-            <p>ZapRecall!</p>
-        </Inicio>
-    );
+	function logout() {
+		localStorage.clear();
+		navigate('/');
+	}
+
+	return (
+		<HeaderContainer>
+			<h1>TrackIt</h1>
+			<div>
+				<p onClick={logout}>Logout</p>
+				<img src={image} alt="" />
+			</div>
+		</HeaderContainer>
+	);
 }
 
-const Inicio = styled.div`
-    display: flex;
-    align-items: center;
-    margin: 40px 0 20px 0;
-    img {
-        width: 52px;
-    }
-    p {
-        margin-left: 25px;
-        font-family: 'Righteous';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 36px;
-        color: #ffffff;
-    }
-`
+const HeaderContainer = styled.div`
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 70px;
+	background-color: #126ba5;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #ffffff;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+	z-index: 10;
+	h1 {
+		font-size: 39px;
+		margin-left: 18px;
+	}
+	div {
+		display: flex;
+		align-items: center;
+		p {
+			margin-right: 10px;
+			text-decoration: underline;
+		}
+	}
+	img {
+		width: 51px;
+		height: 51px;
+		border-radius: 100px;
+		margin-right: 18px;
+	}
+`;
